@@ -1,16 +1,28 @@
 import { Globe, ExternalLink, Share2, Link2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLang } from '../i18n/LangContext';
 import { useTheme } from '../context/ThemeContext';
+
+// Maps footer link labels (FR + EN) to their routes
+const legalRoutes: Record<string, string> = {
+  'Confidentialité': '/confidentialite',
+  'Privacy': '/confidentialite',
+  'CGU': '/cgu',
+  'Terms': '/cgu',
+  'Mentions légales': '/mentions-legales',
+  'Legal Notice': '/mentions-legales',
+  'CNDP': 'https://www.cndp.ma',
+};
 
 export default function Footer() {
   const { t, lang, setLang } = useLang();
   const { dark, toggle } = useTheme();
 
   const columns = [
-    { title: t.footer.product, links: t.footer.productLinks },
-    { title: t.footer.resources, links: t.footer.resourceLinks },
-    { title: t.footer.company, links: t.footer.companyLinks },
-    { title: t.footer.legal, links: t.footer.legalLinks },
+    { title: t.footer.product, links: t.footer.productLinks, isLegal: false },
+    { title: t.footer.resources, links: t.footer.resourceLinks, isLegal: false },
+    { title: t.footer.company, links: t.footer.companyLinks, isLegal: false },
+    { title: t.footer.legal, links: t.footer.legalLinks, isLegal: true },
   ];
 
   return (
@@ -43,13 +55,34 @@ export default function Footer() {
             <div key={col.title}>
               <h4 className="text-sm font-semibold text-white mb-4">{col.title}</h4>
               <ul className="space-y-2.5">
-                {col.links.map(link => (
-                  <li key={link}>
-                    <a href="#" className="text-sm hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map(link => {
+                  const route = col.isLegal ? legalRoutes[link] : undefined;
+                  if (route?.startsWith('http')) {
+                    return (
+                      <li key={link}>
+                        <a href={route} target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">
+                          {link}
+                        </a>
+                      </li>
+                    );
+                  }
+                  if (route) {
+                    return (
+                      <li key={link}>
+                        <Link to={route} className="text-sm hover:text-white transition-colors">
+                          {link}
+                        </Link>
+                      </li>
+                    );
+                  }
+                  return (
+                    <li key={link}>
+                      <a href="#" className="text-sm hover:text-white transition-colors">
+                        {link}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
