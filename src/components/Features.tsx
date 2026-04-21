@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
-import { Calendar, FolderHeart, Video, Receipt, FileText, BarChart3 } from 'lucide-react';
+import { Clock, FolderHeart, WifiOff, FileText, Users, Zap } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useLang } from '../i18n/LangContext';
 
 const iconMap: Record<string, LucideIcon> = {
-  Calendar,
+  Clock,
   FolderHeart,
-  Video,
-  Receipt,
+  WifiOff,
   FileText,
-  BarChart3,
+  Users,
+  Zap,
 };
 
 const container = {
@@ -56,7 +56,7 @@ export default function Features() {
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {t.features.list.map((feature) => {
-            const Icon = iconMap[feature.icon] ?? Calendar;
+            const Icon = iconMap[feature.icon] ?? Clock;
             return (
               <motion.div
                 key={feature.title}
