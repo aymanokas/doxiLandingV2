@@ -10,14 +10,14 @@ export const translations = {
       cta: 'Démarrer gratuitement',
     },
     hero: {
-      badge: 'Nouveau — Doxi 2.0 est disponible',
+      badge: 'Nouveau — Doxi 1.0 est disponible',
       headline1: 'Gérez votre cabinet',
       headline2: 'médical intelligemment.',
       subheadline:
         "L'application de bureau tout-en-un pensée pour les médecins généralistes marocains. Fonctionne hors ligne — agenda, dossiers patients, ordonnances et salle d'attente, tout en local sur votre PC.",
       cta1: 'Essai gratuit 30 jours',
       cta2: 'Voir la démo',
-      stat1: '+3 000',
+      stat1: '+4',
       stat1Label: 'Médecins actifs',
       stat2: '98%',
       stat2Label: 'Satisfaction client',
@@ -153,7 +153,7 @@ export const translations = {
       ],
     },
     cta: {
-      badge: 'Rejoignez +3 000 médecins',
+      badge: 'Rejoignez +4 médecins',
       headline: 'Prêt à moderniser votre cabinet ?',
       subheadline: 'Démarrez votre essai gratuit de 30 jours. Aucune carte bancaire requise.',
       cta1: 'Créer mon compte gratuit',
@@ -182,7 +182,7 @@ export const translations = {
       cta: 'Get Started Free',
     },
     hero: {
-      badge: 'New — Doxi 2.0 is live',
+      badge: 'New — Doxi 1.0 is live',
       headline1: 'Manage your medical',
       headline2: 'practice, intelligently.',
       subheadline:

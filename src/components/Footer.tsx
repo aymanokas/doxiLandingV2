@@ -1,4 +1,4 @@
-import { Globe, ExternalLink, Share2, Link2, Stethoscope } from 'lucide-react';
+import { Globe, ExternalLink, Share2, Link2 } from 'lucide-react';
 import { useLang } from '../i18n/LangContext';
 import { useTheme } from '../context/ThemeContext';
 
@@ -20,9 +20,7 @@ export default function Footer() {
           {/* Brand col */}
           <div className="lg:col-span-1">
             <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-xl bg-primary-600 flex items-center justify-center">
-                <Stethoscope className="w-4 h-4 text-white" />
-              </div>
+              <img src="/doxilogo.png" alt="Doxi" className="h-8 w-auto" />
               <span className="text-lg font-bold text-white tracking-tight">doxi</span>
             </a>
             <p className="text-sm leading-relaxed mb-5">{t.footer.tagline}</p>

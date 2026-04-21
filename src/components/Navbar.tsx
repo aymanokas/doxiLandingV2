@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, Stethoscope } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useLang } from '../i18n/LangContext';
 import { useTheme } from '../context/ThemeContext';
 
@@ -38,10 +38,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group" aria-label="Doxi">
-            <div className="w-9 h-9 rounded-xl bg-primary-600 flex items-center justify-center shadow-lg shadow-primary-600/30 group-hover:shadow-primary-600/50 transition-all">
-              <Stethoscope className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">doxi</span>
+            <img src="/doxilogo.png" alt="Doxi" className="h-10 w-10 object-contain" />
+            <span className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Doxi</span>
           </a>
 
           {/* Desktop nav */}
