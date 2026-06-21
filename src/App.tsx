@@ -12,6 +12,9 @@ import Footer from './components/Footer';
 import CGU from './pages/CGU';
 import Confidentialite from './pages/Confidentialite';
 import MentionsLegales from './pages/MentionsLegales';
+import { SupabaseProvider } from './components/SupabaseSessionProvider';
+import SignIn from './pages/Signin';
+import SignUp from './pages/Signup';
 
 function HomePage() {
   return (
@@ -33,15 +36,18 @@ function HomePage() {
 
 export default function App() {
   return (
-    <>
+
+    <SupabaseProvider>
       <ScrollToTop />
       <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/cgu" element={<CGU />} />
-      <Route path="/confidentialite" element={<Confidentialite />} />
-      <Route path="/mentions-legales" element={<MentionsLegales />} />
-    </Routes>
-    </>
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/cgu" element={<CGU />} />
+        <Route path="/confidentialite" element={<Confidentialite />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+      </Routes>
+    </SupabaseProvider>
   );
 }
 

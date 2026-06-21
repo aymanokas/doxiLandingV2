@@ -2,9 +2,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Zap } from 'lucide-react';
 import { useLang } from '../i18n/LangContext';
+import { siteConfig } from '../config/site';
+import { useNavigate } from 'react-router-dom';
 
 export default function Pricing() {
   const { t } = useLang();
+  
+  const navigate = useNavigate()
   const [annual, setAnnual] = useState(false);
 
   return (
@@ -100,8 +104,8 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href="#"
+              <button
+                onClick={() => navigate(siteConfig.links.signin)}
                 className={`block text-center text-sm font-semibold px-5 py-3 rounded-xl transition-all ${
                   plan.highlight
                     ? 'bg-white text-primary-600 hover:bg-primary-50 shadow-lg shadow-primary-900/20'
@@ -109,7 +113,7 @@ export default function Pricing() {
                 }`}
               >
                 {plan.cta}
-              </a>
+              </button>
             </motion.div>
           ))}
         </div>
